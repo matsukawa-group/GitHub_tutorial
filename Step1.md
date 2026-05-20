@@ -4,6 +4,17 @@ Step 1 では Git/GitHub を実際に使う前の準備段階として，Git/Git
 この step では基本的に単独作業となるが，ペアの学生同士でチェックしながら進めるとよいだろう．
 環境構築で失敗すると先に進めないので困ったら先輩に相談しよう．
 
+- [Step 1](#step-1)
+  - [Git/GitHub の概念を知ろう](#gitgithub-の概念を知ろう)
+  - [環境構築](#環境構築)
+    - [Git のインストール](#git-のインストール)
+      - [Windows](#windows)
+      - [Mac OS](#mac-os)
+    - [Git の設定](#git-の設定)
+  - [GitHub アカウントの作成とローカル環境との連携](#github-アカウントの作成とローカル環境との連携)
+    - [GitHub のアカウント作成](#github-のアカウント作成)
+    - [GitHub CLI のインストール](#github-cli-のインストール)
+
 ## Git/GitHub の概念を知ろう
 
 Git/GitHub の概念について知る．
