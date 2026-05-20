@@ -1,0 +1,292 @@
+# Step 1
+
+Step 1 では Git/GitHub を実際に使う前の準備段階として，Git/GitHub の概念を知り，環境構築を行う．
+この step では基本的に単独作業となるが，ペアの学生同士でチェックしながら進めるとよいだろう．
+環境構築で失敗すると先に進めないので困ったら先輩に相談しよう．
+
+- [Step 1](#step-1)
+  - [Git/GitHub の概念を知ろう](#gitgithub-の概念を知ろう)
+  - [環境構築](#環境構築)
+    - [Git のインストール](#git-のインストール)
+      - [Windows](#windows)
+      - [Mac OS](#mac-os)
+    - [Git の設定](#git-の設定)
+  - [GitHub アカウントの作成とローカル環境との連携](#github-アカウントの作成とローカル環境との連携)
+    - [GitHub のアカウント作成](#github-のアカウント作成)
+    - [GitHub CLI のインストール](#github-cli-のインストール)
+
+## Git/GitHub の概念を知ろう
+
+Git/GitHub の概念について知る．
+詳細は [渡辺宙志先生のスライド](https://kaityo256.github.io/github/) を全員で見て学べばよい．
+
+- 「バージョン管理とは」
+- 「Git の仕組みと用語」
+
+の二つを全員で見る．
+その際，司会進行役が説明しながら進めればよい．
+他のスライドを見ても構わないが，聞いているだけだと B4 が退屈してしまうのと，実感が湧かないのでこの二つくらいでよいと思う．
+
+## 環境構築
+
+### Git のインストール
+
+Git のインストール前にコードエディター（VS Code）は入れておくように．
+
+#### Windows
+
+Windows ユーザーが Git を使うには WSL を使う方法と Git for Windows を使う方法がある．
+どちらでもいいが，ここでは Git for Windows を使う場合の説明をする．
+
+WinGet を使うとインストールが楽なので WinGet が入っているか確認しておこう．
+`cmd.exe` で以下のように入力，`Enter`．
+
+```
+winget install --scope machine Git.Git
+```
+
+以下のような画面になったらインストール成功．
+
+<img src="files/Step1/winget.png" width="80%" style="display: block; margin: auto;">
+
+<details>
+<summary>GUI でインストールする場合（WinGet を使用する人は読まなくていいです）</summary>
+
+[このリンク](https://git-scm.com/downloads) から Windows に対応しているファイルをダウンロードしてインストールする．
+最新版をインストールすればよい．
+
+<img src="files/Step1/git-install.png" width="80%" style="display: block; margin: auto;">
+
+インストール作業ではいくつか設定項目を聞かれる．
+
+<img src="files/Step1/git-setup1.png" width="80%" style="display: block; margin: auto;">
+
+Next をクリック．
+
+<img src="files/Step1/git-setup2.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup3.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup4.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup5.png" width="80%" style="display: block; margin: auto;">
+
+Git の編集に用いるコードエディターが標準だと Vim になっているので，VS Code にしておこう．
+Use Visual Studio Code as Git's default editor を選択．
+ここで間違えて他のエディターにしても後で修正可能．
+
+<img src="files/Step1/git-setup6.png" width="80%" style="display: block; margin: auto;">
+
+リポジトリ作成時の初期ブランチ名の設定．
+デフォルトで `master` になっている場合は `main` に変更しておこう．
+これは計算機で古くから用いられている master/slave によるものだが，用語の使い方に関して論争があるので近年は Git において `main` を使う風潮にある．
+もし間違えて `master` のままインストールしても後で変更可能．
+
+<img src="files/Step1/git-setup7.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup8.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup9.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup10.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup11.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup12.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup13.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup14.png" width="80%" style="display: block; margin: auto;">
+
+特にこだわりが無ければこのまま Next．
+
+<img src="files/Step1/git-setup15.png" width="80%" style="display: block; margin: auto;">
+
+インストール中．
+
+<img src="files/Step1/git-setup16.png" width="80%" style="display: block; margin: auto;">
+
+インストールが完了するとこの画面になる．
+
+</details>
+
+インストールが完了したら Windows キーを押してアプリケーション一覧を確認．
+Git 関連がインストールされているのを確認し，Git Bash を起動．
+このとき，Git Bash をタスクバーに追加しておくとよいだろう．
+Git Bash は Windows で Git を使う際に Linux コマンドで動作するターミナルとなる．
+Git 使用時以外も普段から Linux コマンドで諸々の作業をして構わない．
+
+確認のため
+
+```bash
+git --version
+```
+
+を実行し，バージョン情報が出てきたらインストール成功．
+
+
+※基本的には問題はないが，Git Bash 上で日本語が文字化けすることがある．気になるようであれば [こちら](https://qiita.com/OharanD/items/616021c72f8890a429dd) を参照し，設定を変更すること．
+
+#### Mac OS
+
+Mac OS ユーザーが Git を導入する方法はさまざまあるが，Homebrew を導入するのが最も容易である．
+Homebrew をインストールする手順は以下の通りである（Homebrew をインストール済みの人は「Homebrew をインストールしたら〜」に進む）．
+
+1. [このリンク](https://brew.sh/ja/)からインストールコマンドをコピー
+1. 「ターミナル」アプリを立ち上げる
+1. 手順 1 でコピーしたリンクを貼り付けて，実行（インストールには時間がかかるので，ターミナルを閉じずに待つ）
+1. 終わったらパスを通すように表示されるので，その 2 行をコピーしてターミナルに貼り付けて実行
+
+Homebrew をインストールしたら，以下のインストールコマンド
+
+```zsh
+brew install git
+```
+
+を実行して，Git をインストールする．
+終えたら，確認のため
+
+```zsh
+git --version
+```
+
+を実行する．
+Git のバージョンが表示されれば，インストールが成功している．
+
+### Git の設定
+
+ターミナルを開いて各ユーザーに合わせた必要最低限の設定を開始する．
+
+- `git config --global init.defaultBranch main`：これは計算機で古くから用いられている master/slave によるものだが，用語の使い方に関して論争があるので近年は Git において `main` を使う風潮にある．
+- `git config --global user.name Yuki-MATSUKAWA`：Git のユーザー名を設定．誰が編集したのかわかるように．
+- `git config --global user.email ***@***`：自分のメールアドレスを登録．大学のアドレスでも個人のアドレスでもよいが，大学のメールアドレスは卒業・修了すると使えなくなることに注意．
+- `git config --global core.editor "code --wait"`：Git で使用するコードエディターを VS Code に設定．これよりも前に PC に VS Code を入れておくこと．
+
+Git のグローバルな設定は全て `~/.gitconfig` に書き込まれる．
+ターミナル上で Git の設定をするのが面倒な人や，今まで使っていた設定を新しい PC でも使いたい人は直接 `~/.gitconfig` を編集するとよい．
+
+## GitHub アカウントの作成とローカル環境との連携
+
+Git はローカルリポジトリとリモートリポジトリを使用し，リモートリポジトリとして GitHub を使用する．
+ここでは GitHub のアカウント作成手順と手元の PC ローカル環境との連携手順について説明する．
+
+参考：[ゼロから学ぶ Git/GitHub 現代的なソフトウェア開発のために](https://www.kspub.co.jp/book/detail/5352199.html) 第 7 章．
+
+### GitHub のアカウント作成
+
+[GitHub のウェブページ](https://github.co.jp/) でアカウントを作成．
+
+<img src="files/Step1/github1.png" width="80%" style="display: block; margin: auto;">
+
+「GitHub に登録する」からアカウント作成へ．
+
+<img src="files/Step1/github2.png" width="80%" style="display: block; margin: auto;">
+
+メールアドレスを登録．
+
+<img src="files/Step1/github3.png" width="80%" style="display: block; margin: auto;">
+
+登録に成功したらこのような画面が出てくる．
+
+### GitHub CLI のインストール
+
+GitHub CLI を使用すると ssh-keygen が楽になる．
+Windows の場合はターミナルから
+
+```bash
+winget install --scope machine GitHub.cli
+```
+
+と入力して WinGet 経由で GitHub CLI をインストール．
+
+<details><summary>Mac OS の場合のインストール方法</summary>
+Mac OS の場合はターミナルから
+
+```zsh
+brew install gh
+```
+
+と入力して Homebrew 経由で GitHub CLI をインストール．
+あとは Windows と同様に進めればよい．
+</details>
+
+インストールが完了したら
+
+```bash
+gh auth login
+```
+
+と入力して `Enter`．
+
+<img src="files/Step1/gh-auth1.png" width="80%" style="display: block; margin: auto;">
+
+`GitHub.com` を選択．
+
+<img src="files/Step1/gh-auth2.png" width="80%" style="display: block; margin: auto;">
+
+`SSH` を選択．
+
+<img src="files/Step1/gh-auth3.png" width="80%" style="display: block; margin: auto;">
+
+`Y` と入力し `Enter`．
+
+<img src="files/Step1/gh-auth4.png" width="80%" style="display: block; margin: auto;">
+
+パスフレーズを入力．
+
+<img src="files/Step1/gh-auth5.png" width="80%" style="display: block; margin: auto;">
+
+SSH 鍵の名前を設定．
+
+<img src="files/Step1/gh-auth6.png" width="80%" style="display: block; margin: auto;">
+
+`Login with a web browser` を選択．
+
+<img src="files/Step1/gh-auth7.png" width="80%" style="display: block; margin: auto;">
+
+ログイン用のワンタイムコードが表示されるのでコピー．
+`Enter` を押すとウェブブラウザで GitHub の認証画面が表示される．
+
+<img src="files/Step1/gh-auth8.png" width="80%" style="display: block; margin: auto;">
+
+`Continue` を押してワンタイムコードを貼り付け．
+二段階認証の設定をしている人はここで二段階認証を求められる．
+
+<img src="files/Step1/gh-auth9.png" width="80%" style="display: block; margin: auto;">
+
+認証が全て完了するとターミナルがこのような画面になる．
+
+<details>
+<summary>GitHub CLI を使用せずに ssh-keygen する方法（GitHub CLI を使用する人は読まなくていいです）</summary>
+
+1. GitHub の個人ページに移動．
+2. `ssh-keygen -t ed25519 -C "***@***"`：ターミナル上で SSH Key を生成．`***@***` は登録したメールアドレス．
+3. 鍵の保存場所を確認．
+4. パスフレーズを入力．
+5. `clip < /c/Users/xxx/.ssh/id_ed25519.pub`：公開鍵をコピー
+6. GitHub 個人ページの Settings の SSH and GPG keys から Add new SSH Key を選択．公開鍵を貼り付ける．
+7. `ssh -T git@github.com`：正しく設定できたことをターミナル上で確認．
+8. パスフレーズを入力．
+
+</details>
+
