@@ -162,3 +162,14 @@ git --version
 を実行する．
 Git のバージョンが表示されれば，インストールが成功している．
 
+### Git の設定
+
+ターミナルを開いて各ユーザーに合わせた必要最低限の設定を開始する．
+
+- `git config --global init.defaultBranch main`：これは計算機で古くから用いられている master/slave によるものだが，用語の使い方に関して論争があるので近年は Git において `main` を使う風潮にある．
+- `git config --global user.name Yuki-MATSUKAWA`：Git のユーザー名を設定．誰が編集したのかわかるように．
+- `git config --global user.email ***@***`：自分のメールアドレスを登録．大学のアドレスでも個人のアドレスでもよいが，大学のメールアドレスは卒業・修了すると使えなくなることに注意．
+- `git config --global core.editor "code --wait"`：Git で使用するコードエディターを VS Code に設定．これよりも前に PC に VS Code を入れておくこと．
+
+Git のグローバルな設定は全て `~/.gitconfig` に書き込まれる．
+ターミナル上で Git の設定をするのが面倒な人や，今まで使っていた設定を新しい PC でも使いたい人は直接 `~/.gitconfig` を編集するとよい．
